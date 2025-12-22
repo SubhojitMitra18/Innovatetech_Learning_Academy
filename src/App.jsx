@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
-import CoursesList from "./components/Courses/CoursesList";
+import CoursesList from "./components/courses/CoursesList";
 import Reviews from "./components/Reviews/Reviews"; // ⬅ Imported Reviews
 import ContactForm from "./components/Contact/ContactForm";
 
