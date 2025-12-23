@@ -1,27 +1,19 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = useCallback(() => {
-    setIsMenuOpen((prev) => !prev);
-  }, []);
-
-  const closeMenu = useCallback(() => {
-    setIsMenuOpen(false);
-  }, []);
-
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <>
@@ -31,35 +23,52 @@ const Navbar = () => {
             Innovatetech
           </a>
 
-          <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-            <li><a href="#home" onClick={closeMenu}>Home</a></li>
-            <li><a href="#courses" onClick={closeMenu}>Courses</a></li>
-            <li><a href="#about" onClick={closeMenu}>About</a></li>
-            <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
-            <li><a href="#reviews" onClick={closeMenu}>Reviews</a></li>
+          {/* Desktop Links */}
+          <ul className="nav-links desktop">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#reviews">Reviews</a></li>
           </ul>
 
           <a
             href="https://forms.gle/jRGBXg4mVbCRQ4LQ8"
-            className="nav-btn"
+            className="nav-btn desktop"
           >
             Book Free Demo
           </a>
 
-          {/* ☰ / ✕ Button */}
+          {/* Mobile Toggle */}
           <button
-            className={`menu-toggle ${isMenuOpen ? "open" : ""}`}
-            onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
+            className="menu-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? "✕" : "☰"}
+            {isOpen ? "✕" : "☰"}
           </button>
         </div>
+
+        {/* Mobile Dropdown */}
+        {isOpen && (
+          <div className="mobile-menu">
+            <a href="#home" onClick={closeMenu}>Home</a>
+            <a href="#courses" onClick={closeMenu}>Courses</a>
+            <a href="#about" onClick={closeMenu}>About</a>
+            <a href="#contact" onClick={closeMenu}>Contact</a>
+            <a href="#reviews" onClick={closeMenu}>Reviews</a>
+
+            <a
+              href="https://forms.gle/jRGBXg4mVbCRQ4LQ8"
+              className="mobile-cta"
+            >
+              Book Free Demo
+            </a>
+          </div>
+        )}
       </nav>
 
-      {isMenuOpen && <div className="nav-overlay" onClick={closeMenu} />}
-
+      {/* WhatsApp */}
       <a
         href="https://wa.me/919836196136"
         className="whatsapp-float"
