@@ -1,24 +1,24 @@
 :root {
-  --primary: #2d6cdf;
+  --primary-color: #2d6cdf;
   --primary-dark: #1f4da8;
-  --text: #333;
-  --bg: #fff;
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  --text-dark: #333;
+  --bg-white: #ffffff;
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* ===== NAVBAR ===== */
+/* ================= NAVBAR ================= */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   background: transparent;
   z-index: 1000;
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar.scrolled {
-  background: var(--bg);
-  box-shadow: var(--shadow);
+  background: var(--bg-white);
+  box-shadow: var(--shadow-soft);
 }
 
 .nav-container {
@@ -30,14 +30,15 @@
   justify-content: space-between;
 }
 
+/* ================= LOGO ================= */
 .nav-logo {
   font-size: 26px;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-color);
   text-decoration: none;
 }
 
-/* ===== DESKTOP ===== */
+/* ================= DESKTOP LINKS ================= */
 .nav-links {
   display: flex;
   gap: 28px;
@@ -45,53 +46,57 @@
 }
 
 .nav-links a {
+  color: var(--text-dark);
   text-decoration: none;
-  color: var(--text);
+  font-size: 16px;
 }
 
+/* ================= CTA ================= */
 .nav-btn {
-  background: var(--primary);
-  color: #fff;
+  background: var(--primary-color);
+  color: #ffffff;
   padding: 10px 18px;
   border-radius: 8px;
   text-decoration: none;
+  font-size: 15px;
 }
 
-/* ===== TOGGLE ===== */
+/* ================= MENU TOGGLE ================= */
 .menu-toggle {
   display: none;
-  font-size: 30px;
+  font-size: 32px;
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--text-dark);
 }
 
-/* ===== MOBILE MENU ===== */
+/* ================= MOBILE DROPDOWN ================= */
 .mobile-menu {
-  background: var(--bg);
-  box-shadow: var(--shadow);
+  background: var(--bg-white);
+  box-shadow: var(--shadow-soft);
   padding: 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .mobile-menu a {
-  text-decoration: none;
-  color: var(--text);
+  color: var(--text-dark);
   font-size: 17px;
+  text-decoration: none;
 }
 
 .mobile-cta {
-  margin-top: 10px;
-  background: var(--primary);
-  color: #fff;
+  margin-top: 12px;
+  background: var(--primary-color);
+  color: #ffffff;
   padding: 12px;
-  text-align: center;
   border-radius: 8px;
+  text-align: center;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .desktop {
     display: none;
@@ -102,18 +107,19 @@
   }
 }
 
-/* ===== WHATSAPP ===== */
+/* ================= WHATSAPP FLOAT ================= */
 .whatsapp-float {
   position: fixed;
   right: 30px;
   bottom: 30px;
+  background: #25d366;
+  color: #ffffff;
   width: 60px;
   height: 60px;
-  background: #25d366;
-  color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
