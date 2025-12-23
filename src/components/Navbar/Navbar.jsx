@@ -8,9 +8,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const closeMenu = () => setIsOpen(false);
@@ -19,6 +19,7 @@ const Navbar = () => {
     <>
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
+          {/* Logo */}
           <a href="#home" className="nav-logo" onClick={closeMenu}>
             Innovatetech
           </a>
@@ -32,6 +33,7 @@ const Navbar = () => {
             <li><a href="#reviews">Reviews</a></li>
           </ul>
 
+          {/* Desktop CTA */}
           <a
             href="https://forms.gle/jRGBXg4mVbCRQ4LQ8"
             className="nav-btn desktop"
@@ -49,7 +51,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
+        {/* Mobile Dropdown Menu */}
         {isOpen && (
           <div className="mobile-menu">
             <a href="#home" onClick={closeMenu}>Home</a>
@@ -61,6 +63,7 @@ const Navbar = () => {
             <a
               href="https://forms.gle/jRGBXg4mVbCRQ4LQ8"
               className="mobile-cta"
+              onClick={closeMenu}
             >
               Book Free Demo
             </a>
@@ -68,12 +71,13 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* WhatsApp */}
+      {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/919836196136"
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
       >
         <FontAwesomeIcon icon={faWhatsapp} />
       </a>
