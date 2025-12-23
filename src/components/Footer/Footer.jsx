@@ -56,7 +56,7 @@ const Footer = () => {
             <a href="https://www.facebook.com/share/1DUz4S4kSL/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
             <a href="https://www.instagram.com/innovatetechlearningacademy?igsh=OWptcTJ1ZGRpamZh" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
             <a href="https://wa.me/919836196136" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="https://www.linkedin.com/company/110898937" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
           </div>
 
           {/* Google Map Embed */}
