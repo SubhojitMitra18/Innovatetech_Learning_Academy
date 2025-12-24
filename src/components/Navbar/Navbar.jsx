@@ -6,7 +6,6 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 // WhatsApp Floating Button
 const WhatsAppFloat = () => {
-  // Ensure document exists (important for SSR)
   if (typeof document === "undefined") return null;
 
   return ReactDOM.createPortal(
@@ -33,27 +32,37 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const closeMenu = () => setIsOpen(false);
+  // Smooth scroll for links
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsOpen(false); // close mobile menu
+    }
+  };
 
   return (
     <>
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
-          <a href="#home" className="nav-logo" onClick={closeMenu}>
+          <a href="#home" className="nav-logo" onClick={(e) => handleNavClick(e, "home")}>
             Innovatetech
           </a>
 
           <ul className="nav-links desktop">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#home" onClick={(e) => handleNavClick(e, "home")}>Home</a></li>
+            <li><a href="#courses" onClick={(e) => handleNavClick(e, "courses")}>Courses</a></li>
+            <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
+            <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
+            <li><a href="#reviews" onClick={(e) => handleNavClick(e, "reviews")}>Reviews</a></li>
           </ul>
 
           <a
             href="https://forms.gle/jRGBXg4mVbCRQ4LQ8"
             className="nav-btn desktop"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Book Free Demo
           </a>
@@ -69,16 +78,17 @@ const Navbar = () => {
 
         {isOpen && (
           <div className="mobile-menu">
-            <a href="#home" onClick={closeMenu}>Home</a>
-            <a href="#courses" onClick={closeMenu}>Courses</a>
-            <a href="#about" onClick={closeMenu}>About</a>
-            <a href="#contact" onClick={closeMenu}>Contact</a>
-            <a href="#reviews" onClick={closeMenu}>Reviews</a>
+            <a href="#home" onClick={(e) => handleNavClick(e, "home")}>Home</a>
+            <a href="#courses" onClick={(e) => handleNavClick(e, "courses")}>Courses</a>
+            <a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a>
+            <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a>
+            <a href="#reviews" onClick={(e) => handleNavClick(e, "reviews")}>Reviews</a>
 
             <a
               href="https://forms.gle/jRGBXg4mVbCRQ4LQ8"
               className="mobile-cta"
-              onClick={closeMenu}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Book Free Demo
             </a>
@@ -86,7 +96,6 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* WhatsApp Floating Button */}
       <WhatsAppFloat />
     </>
   );
