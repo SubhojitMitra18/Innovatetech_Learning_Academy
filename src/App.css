@@ -8,27 +8,38 @@
   font-family: "Inter", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ---------------------------------------------------------
+   VIEWPORT & SCROLL FIX (CRITICAL)
+--------------------------------------------------------- */
+html, body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  transform: none !important;
 }
 
+/* ---------------------------------------------------------
+   BODY BASE STYLES
+--------------------------------------------------------- */
 body {
   background: #ffffff;
   color: #222;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 /* ---------------------------------------------------------
-   APP CONTAINER
+   APP CONTAINER (MUST NOT SCROLL)
 --------------------------------------------------------- */
 .app-container {
   width: 100%;
+  overflow: visible !important;
+  position: relative;
 }
 
 /* ---------------------------------------------------------
    SECTION WRAPPER
-   FULL WIDTH SECTIONS (NO EMPTY SIDES)
 --------------------------------------------------------- */
 .section-wrapper {
   width: 100%;
@@ -49,11 +60,10 @@ body {
 
 /* ---------------------------------------------------------
    GLOBAL CONTENT CONTAINER
-   Wide but controlled for readability
 --------------------------------------------------------- */
 .container {
   width: 100%;
-  max-width: 1600px;   /* ⬅ wider than before */
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 60px;
 }
@@ -68,8 +78,6 @@ body {
   margin-bottom: 50px;
   color: #0f172a;
 }
-
-
 
 /* ---------------------------------------------------------
    RESPONSIVE ADJUSTMENTS
