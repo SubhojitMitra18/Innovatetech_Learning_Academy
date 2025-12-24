@@ -10,7 +10,7 @@ import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
 import CoursesList from "./components/courses/CoursesList";
-import Reviews from "./components/Reviews/Reviews"; // ⬅ Imported Reviews
+import Reviews from "./components/Reviews/Reviews";
 import ContactForm from "./components/Contact/ContactForm";
 
 function App() {
@@ -26,17 +26,18 @@ function App() {
   }, []);
 
   return (
-    <div className="app-container">
+    <div className="app-container winter-theme">
+      {/* ❄️ Snow Overlay */}
+      <div className="snow-layer"></div>
+
       {/* ================= NAVBAR ================= */}
       <Navbar />
 
       <main>
-        {/* ================= HERO ================= */}
         <section id="home" className="hero-wrapper" aria-label="Hero Section">
           <Hero />
         </section>
 
-        {/* ================= ABOUT ================= */}
         <section
           id="about"
           className="section-wrapper full-width"
@@ -45,7 +46,6 @@ function App() {
           <About />
         </section>
 
-        {/* ================= WHY CHOOSE US ================= */}
         <section
           id="why-us"
           className="section-wrapper grey-bg full-width"
@@ -54,7 +54,6 @@ function App() {
           <WhyChooseUs />
         </section>
 
-        {/* ================= COURSES ================= */}
         <section
           id="courses"
           className="section-wrapper full-width"
@@ -63,7 +62,6 @@ function App() {
           <CoursesList />
         </section>
 
-        {/* ================= REVIEWS ================= */}
         <section
           id="reviews"
           className="section-wrapper grey-bg full-width"
@@ -72,7 +70,6 @@ function App() {
           <Reviews />
         </section>
 
-        {/* ================= CONTACT ================= */}
         <section
           id="contact"
           className="section-wrapper grey-bg full-width"
