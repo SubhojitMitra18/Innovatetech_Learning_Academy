@@ -89,6 +89,3 @@ function App() {
 }
 
 export default App;
-
-
-I want a winter snow like theme for the whole page
