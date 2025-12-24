@@ -32,14 +32,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e, id) => {
-  
+const handleNavClick = (e, id) => {
+  e.preventDefault(); // 🔑 THIS FIXES MOBILE
+
   const section = document.getElementById(id);
   if (section) {
     section.scrollIntoView({ behavior: "smooth", block: "start" });
-    setIsOpen(false);
   }
+
+  setIsOpen(false); // close mobile menu
 };
+
 
 
 
