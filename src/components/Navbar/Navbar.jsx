@@ -32,17 +32,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll for links
   const handleNavClick = (e, id) => {
-  e.preventDefault();
-
+  
   const section = document.getElementById(id);
   if (section) {
-    window.history.pushState(null, "", `#${id}`); // ✅ update URL
     section.scrollIntoView({ behavior: "smooth", block: "start" });
     setIsOpen(false);
   }
 };
+
 
 
   return (
