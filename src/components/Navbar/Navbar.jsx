@@ -34,13 +34,16 @@ const Navbar = () => {
 
   // Smooth scroll for links
   const handleNavClick = (e, id) => {
-    e.preventDefault();
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsOpen(false); // close mobile menu
-    }
-  };
+  e.preventDefault();
+
+  const section = document.getElementById(id);
+  if (section) {
+    window.history.pushState(null, "", `#${id}`); // ✅ update URL
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    setIsOpen(false);
+  }
+};
+
 
   return (
     <>
