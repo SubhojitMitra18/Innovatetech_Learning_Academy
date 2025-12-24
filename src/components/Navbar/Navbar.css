@@ -107,7 +107,6 @@
   }
 }
 
-/* ================= WHATSAPP FLOAT ================= */
 .whatsapp-float {
   position: fixed;
   right: 30px;
@@ -122,4 +121,6 @@
   justify-content: center;
   font-size: 28px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 2000; /* 🔥 ADD THIS */
 }
+
