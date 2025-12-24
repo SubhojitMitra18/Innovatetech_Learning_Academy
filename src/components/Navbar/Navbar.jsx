@@ -1,7 +1,23 @@
 import { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
+const WhatsAppFloat = () => {
+  return ReactDOM.createPortal(
+    <a
+      href="https://wa.me/919836196136"
+      className="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <FontAwesomeIcon icon={faWhatsapp} />
+    </a>,
+    document.body
+  );
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,12 +35,10 @@ const Navbar = () => {
     <>
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
-          {/* Logo */}
           <a href="#home" className="nav-logo" onClick={closeMenu}>
             Innovatetech
           </a>
 
-          {/* Desktop Links */}
           <ul className="nav-links desktop">
             <li><a href="#home">Home</a></li>
             <li><a href="#courses">Courses</a></li>
@@ -33,7 +47,6 @@ const Navbar = () => {
             <li><a href="#reviews">Reviews</a></li>
           </ul>
 
-          {/* Desktop CTA */}
           <a
             href="https://forms.gle/jRGBXg4mVbCRQ4LQ8"
             className="nav-btn desktop"
@@ -41,7 +54,6 @@ const Navbar = () => {
             Book Free Demo
           </a>
 
-          {/* Mobile Toggle */}
           <button
             className="menu-toggle"
             onClick={() => setIsOpen(!isOpen)}
@@ -51,7 +63,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
         {isOpen && (
           <div className="mobile-menu">
             <a href="#home" onClick={closeMenu}>Home</a>
@@ -72,15 +83,7 @@ const Navbar = () => {
       </nav>
 
       {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/919836196136"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-      >
-        <FontAwesomeIcon icon={faWhatsapp} />
-      </a>
+      <WhatsAppFloat />
     </>
   );
 };
