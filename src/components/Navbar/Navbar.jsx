@@ -4,7 +4,11 @@ import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
+// WhatsApp Floating Button
 const WhatsAppFloat = () => {
+  // Ensure document exists (important for SSR)
+  if (typeof document === "undefined") return null;
+
   return ReactDOM.createPortal(
     <a
       href="https://wa.me/919836196136"

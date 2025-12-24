@@ -95,6 +95,11 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  z-index: 1001;
 }
 
 .mobile-menu a {
@@ -126,6 +131,7 @@
 }
 
 /* ================= WHATSAPP FLOAT ================= */
+/* ================= WHATSAPP FLOAT ================= */
 .whatsapp-float {
   position: fixed;
   right: 24px;
@@ -140,5 +146,25 @@
   justify-content: center;
   font-size: 30px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  z-index: 2147483647;
+  z-index: 2000;
+  animation: float 2s ease-in-out infinite; /* floating animation */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1); /* hover scale */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Keyframes for floating effect */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* move up */
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
