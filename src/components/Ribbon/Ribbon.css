@@ -1,55 +1,117 @@
-/* ================= RIBBON CONTAINER ================= */
+/* ================= RIBBON ================= */
 .ribbon {
   width: 100%;
-  overflow: hidden;
   background: linear-gradient(90deg, #b71c1c, #1b5e20);
-  padding: 10px 0;
-
-  /* IMPORTANT: navbar is fixed/sticky */
-  margin-top: 70px; /* adjust to your navbar height */
-
-  position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  margin-top: 70px; /* navbar offset */
 }
 
-/* ================= MOVING TEXT ================= */
+/* ================= SVG BELLS ================= */
+.ribbon-deco {
+  flex-shrink: 0;
+}
+
+.bell-svg {
+  filter: drop-shadow(0 0 6px gold);
+  transform-origin: 50% 10%; /* pivot near top of bell */
+  animation: bell-ring 1.2s infinite ease-in-out;
+}
+
+/* Left & Right bells opposite phase */
+.bell-left .bell-svg {
+  animation-delay: 0s;
+}
+.bell-right .bell-svg {
+  animation-delay: 0.6s;
+}
+
+/* Ringing animation */
+@keyframes bell-ring {
+  0% { transform: rotate(0deg); filter: drop-shadow(0 0 6px gold); }
+  25% { transform: rotate(15deg); filter: drop-shadow(0 0 10px #ffd700); }
+  50% { transform: rotate(0deg); filter: drop-shadow(0 0 12px #ffeb3b); }
+  75% { transform: rotate(-15deg); filter: drop-shadow(0 0 10px #ffd700); }
+  100% { transform: rotate(0deg); filter: drop-shadow(0 0 6px gold); }
+}
+
+/* Spacing bells from marquee */
+.ribbon-deco:first-child { margin-right: 14px; }
+.ribbon-deco:last-child { margin-left: 14px; }
+
+/* ================= MARQUEE ================= */
+.ribbon-marquee {
+  flex: 1;
+  overflow: hidden;
+}
+
 .ribbon-track {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
   font-size: 0.95rem;
   animation: ribbon-scroll 20s linear infinite;
 }
 
-/* Space between repeated text */
-.ribbon-gap {
-  display: inline-block;
-  width: 60px;
-}
-
-/* ================= ANIMATION ================= */
-@keyframes ribbon-scroll {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* ================= HOVER PAUSE ================= */
-.ribbon-track:hover {
+/* Pause marquee on hover */
+.ribbon:hover .ribbon-track {
   animation-play-state: paused;
+}
+
+.ribbon-gap {
+  width: 80px;
+  display: inline-block;
+}
+
+/* ================= CTA ================= */
+.ribbon-cta {
+  position: relative;
+  margin-left: 16px;
+  padding: 6px 14px;
+  background: #ffffff;
+  color: #b71c1c;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+/* Glitter only on CTA */
+.glitter-cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 215, 0, 0.9),
+    transparent
+  );
+  animation: glitter-sweep 2.6s infinite;
+}
+
+@keyframes glitter-sweep {
+  0% { left: -120%; }
+  60% { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* ================= SCROLL ================= */
+@keyframes ribbon-scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .ribbon {
-    padding: 8px 0;
-  }
-
-  .ribbon-track {
-    font-size: 0.85rem;
-  }
+  .ribbon-track { font-size: 0.85rem; }
+  .ribbon-cta { font-size: 0.75rem; padding: 5px 12px; }
+  .bell-svg { width: 22px; height: 22px; }
 }
