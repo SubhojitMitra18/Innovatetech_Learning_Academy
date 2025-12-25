@@ -4,13 +4,14 @@ import "./App.css";
 // Layout Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Ribbon from "./components/Ribbon/Ribbon";
 
 // Page Sections
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
 import CoursesList from "./components/courses/CoursesList";
-import Reviews from "./components/Reviews/Reviews"; // ⬅ Imported Reviews
+import Reviews from "./components/Reviews/Reviews";
 import ContactForm from "./components/Contact/ContactForm";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       "Innovatetech Learning Academy | Learn Python, AI/ML, React & DSA";
   }, []);
 
-  // Back to top
+  // Back to top (optional future use)
   const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -29,6 +30,9 @@ function App() {
     <div className="app-container">
       {/* ================= NAVBAR ================= */}
       <Navbar />
+
+      {/* 🎄 CHRISTMAS & NEW YEAR RIBBON (BELOW NAVBAR) */}
+      <Ribbon />
 
       <main>
         {/* ================= HERO ================= */}

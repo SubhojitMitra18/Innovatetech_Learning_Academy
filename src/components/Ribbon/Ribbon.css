@@ -1,0 +1,55 @@
+/* ================= RIBBON CONTAINER ================= */
+.ribbon {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #b71c1c, #1b5e20);
+  padding: 10px 0;
+
+  /* IMPORTANT: navbar is fixed/sticky */
+  margin-top: 70px; /* adjust to your navbar height */
+
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= MOVING TEXT ================= */
+.ribbon-track {
+  display: inline-block;
+  white-space: nowrap;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  animation: ribbon-scroll 20s linear infinite;
+}
+
+/* Space between repeated text */
+.ribbon-gap {
+  display: inline-block;
+  width: 60px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes ribbon-scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ================= HOVER PAUSE ================= */
+.ribbon-track:hover {
+  animation-play-state: paused;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .ribbon {
+    padding: 8px 0;
+  }
+
+  .ribbon-track {
+    font-size: 0.85rem;
+  }
+}
