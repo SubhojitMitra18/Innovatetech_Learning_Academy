@@ -33,7 +33,6 @@ const Navbar = () => {
   }, []);
 
 const handleNavClick = (e, id) => {
-  e.preventDefault(); // 🔑 THIS FIXES MOBILE
 
   const section = document.getElementById(id);
   if (section) {
