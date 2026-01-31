@@ -1,42 +1,39 @@
 /* ================= RIBBON ================= */
 .ribbon {
   width: 100%;
-  background: linear-gradient(90deg, #b71c1c, #1b5e20);
+  background: linear-gradient(90deg, #fffde7, #fff9c4, #fffde7);
   display: flex;
   align-items: center;
   padding: 8px 14px;
-  margin-top: 70px; /* navbar offset */
+  margin-top: 70px;
+  border-top: 1px solid #fbc02d;
+  border-bottom: 1px solid #fbc02d;
 }
 
-/* ================= SVG BELLS ================= */
+/* ================= LOTUS ================= */
 .ribbon-deco {
   flex-shrink: 0;
 }
 
-.bell-svg {
-  filter: drop-shadow(0 0 6px gold);
-  transform-origin: 50% 10%; /* pivot near top of bell */
-  animation: bell-ring 1.2s infinite ease-in-out;
+.lotus-svg {
+  filter: drop-shadow(0 0 6px #fbc02d);
+  animation: lotus-float 2.8s ease-in-out infinite;
 }
 
-/* Left & Right bells opposite phase */
-.bell-left .bell-svg {
+.lotus-left .lotus-svg {
   animation-delay: 0s;
 }
-.bell-right .bell-svg {
-  animation-delay: 0.6s;
+.lotus-right .lotus-svg {
+  animation-delay: 1.4s;
 }
 
-/* Ringing animation */
-@keyframes bell-ring {
-  0% { transform: rotate(0deg); filter: drop-shadow(0 0 6px gold); }
-  25% { transform: rotate(15deg); filter: drop-shadow(0 0 10px #ffd700); }
-  50% { transform: rotate(0deg); filter: drop-shadow(0 0 12px #ffeb3b); }
-  75% { transform: rotate(-15deg); filter: drop-shadow(0 0 10px #ffd700); }
-  100% { transform: rotate(0deg); filter: drop-shadow(0 0 6px gold); }
+@keyframes lotus-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
 
-/* Spacing bells from marquee */
+/* Spacing */
 .ribbon-deco:first-child { margin-right: 14px; }
 .ribbon-deco:last-child { margin-left: 14px; }
 
@@ -50,13 +47,13 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  color: #fff;
+  color: #5d4037;
   font-weight: 600;
   font-size: 0.95rem;
-  animation: ribbon-scroll 20s linear infinite;
+  animation: ribbon-scroll 22s linear infinite;
 }
 
-/* Pause marquee on hover */
+/* Pause on hover */
 .ribbon:hover .ribbon-track {
   animation-play-state: paused;
 }
@@ -70,9 +67,9 @@
 .ribbon-cta {
   position: relative;
   margin-left: 16px;
-  padding: 6px 14px;
-  background: #ffffff;
-  color: #b71c1c;
+  padding: 6px 16px;
+  background: #fbc02d;
+  color: #4e342e;
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -80,7 +77,7 @@
   overflow: hidden;
 }
 
-/* Glitter only on CTA */
+/* Blessing shimmer */
 .glitter-cta::after {
   content: "";
   position: absolute;
@@ -91,10 +88,10 @@
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255, 215, 0, 0.9),
+    rgba(255, 255, 255, 0.9),
     transparent
   );
-  animation: glitter-sweep 2.6s infinite;
+  animation: glitter-sweep 3s infinite;
 }
 
 @keyframes glitter-sweep {
@@ -113,5 +110,5 @@
 @media (max-width: 768px) {
   .ribbon-track { font-size: 0.85rem; }
   .ribbon-cta { font-size: 0.75rem; padding: 5px 12px; }
-  .bell-svg { width: 22px; height: 22px; }
+  .lotus-svg { width: 22px; height: 22px; }
 }
