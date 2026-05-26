@@ -1,6 +1,12 @@
 import { useEffect, useCallback } from "react";
 import "./App.css";
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 // Layout Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -14,7 +20,10 @@ import CoursesList from "./components/courses/CoursesList";
 import Reviews from "./components/Reviews/Reviews";
 import ContactForm from "./components/Contact/ContactForm";
 
-function App() {
+// Verify Page
+import Verify from "./pages/Verify";
+
+function HomePage() {
   // Set page title
   useEffect(() => {
     document.title =
@@ -31,7 +40,7 @@ function App() {
       {/* ================= NAVBAR ================= */}
       <Navbar />
 
-      {/* 🎄 CHRISTMAS & NEW YEAR RIBBON (BELOW NAVBAR) */}
+      {/* ================= RIBBON ================= */}
       <Ribbon />
 
       <main>
@@ -89,6 +98,21 @@ function App() {
       {/* ================= FOOTER ================= */}
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/verify" element={<Verify />} />
+        <Route
+          path="/verify/:certificateId"
+          element={<Verify />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
