@@ -1,0 +1,123 @@
+/* SECTION */
+.why-section {
+  padding: 90px 0;
+  background: linear-gradient(135deg, #f5f9ff, #eef3ff);
+}
+
+/* CONTAINER */
+.why-container {
+  width: min(1200px, 90%);
+  margin: auto;
+  text-align: center;
+}
+
+/* TITLE */
+.why-title {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  margin-bottom: 55px;
+  color: #0f172a;
+  position: relative;
+}
+
+.why-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #0066ff, #00c6ff);
+  display: block;
+  margin: 14px auto 0;
+  border-radius: 10px;
+}
+
+/* GRID */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.why-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 35px 25px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Glow Effect */
+.why-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0, 102, 255, 0.12),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.why-card:hover::before {
+  opacity: 1;
+}
+
+.why-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ICON */
+.why-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0066ff, #00c6ff);
+  color: #fff;
+  font-size: 38px;
+  box-shadow: 0 10px 25px rgba(0, 102, 255, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.why-card:hover .why-icon {
+  transform: rotate(8deg) scale(1.08);
+}
+
+/* CARD TITLE */
+.why-card-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+/* DESCRIPTION */
+.why-card-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  .why-card {
+    padding: 30px 20px;
+  }
+
+  .why-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+}
