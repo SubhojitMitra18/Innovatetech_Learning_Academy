@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import CourseCard from "./CourseCard";
 import courses from "./coursesdata";
 import "./courses.css";
-
 const extraCourses = [
   {
     id: 101,
@@ -38,8 +37,28 @@ const extraCourses = [
       "Develop modern PHP applications using the Laravel framework.",
     duration: "6 Months",
   },
+  {
+    id: 106,
+    name: "Cyber Security",
+    description:
+      "Learn ethical hacking, network security, and cyber threat protection techniques.",
+    duration: "3 Months",
+  },
+  {
+    id: 107,
+    name: "AI Foundation",
+    description:
+      "Understand the fundamentals of Artificial Intelligence, Machine Learning, and AI tools.",
+    duration: "3 Months",
+  },
+  {
+    id: 108,
+    name: "Project Management",
+    description:
+      "Learn project planning, team coordination, and agile management methodologies.",
+    duration: "3 Months",
+  },
 ];
-
 const CoursesList = () => {
   const [showMore, setShowMore] = useState(false);
   const moreRef = useRef(null);
